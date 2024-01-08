@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>Home page</center>
+{% if current_user.is_authenticated %}
+    <h1>Welcome, {{ current_user.username }}</h1>
+
+
+    <img src="{{ current_user.userprofile.profile_picture.url }}" alt="Profile Picture" width="100px" height="120px">
+
+
+<button>
+    <a href="{% url 'user_logout' %}">Logout</a>
+
+</button>
+
+{% else %}
+<p>This is Unauthorization Person please try to login </p>
+
+
+<a href="{% url 'userlogin' %}">User_login</a>
+
+{% endif %}
+
+</body>
+</html>
